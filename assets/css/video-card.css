@@ -1,0 +1,366 @@
+/* ==== BRANDING VARIABLE ==== */
+:root {
+  --branding-color: #8bc34a;
+}
+
+/* ==== VIDEO CARDS STYLES ==== */
+.vc-wrapper,
+.vc-wrapper * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.vc-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ==== GRID ==== */
+.vc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+@media (max-width: 1200px) {
+  .vc-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .vc-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .vc-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    padding: 20px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .vc-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .vc-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+  }
+}
+
+/* ==== NAVIGATION DOTS ==== */
+.vc-nav {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 20px 24px;
+}
+
+@media (max-width: 600px) {
+  .vc-nav {
+    display: flex;
+  }
+}
+
+.vc-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d7d7d7;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vc-nav-dot:hover {
+  background: var(--branding-color);
+}
+
+.vc-nav-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: var(--branding-color);
+}
+
+/* ==== CARD ==== */
+.vc-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #d7d7d7;
+  transition: border-color 0.3s ease;
+}
+
+.vc-card:hover {
+  border-color: var(--branding-color);
+}
+
+/* ==== VIDEO AREA ===== */
+.vc-video {
+  position: relative;
+  aspect-ratio: 9 / 16;
+  background: #000;
+  overflow: hidden;
+}
+
+.vc-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.vc-thumbnail.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vc-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==== PLATFORM BADGE ===== */
+.vc-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 10;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #333333;
+}
+
+.vc-platform-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.vc-badge--youtube .vc-platform-icon { color: #ff0000; }
+.vc-badge--tiktok .vc-platform-icon { color: #ffffff; }
+.vc-badge--instagram .vc-platform-icon { color: #e4405f; }
+
+.vc-badge-text {
+  color: #ffffff;
+}
+
+/* ==== PLAY BUTTON ==== */
+.vc-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 64px;
+  height: 64px;
+  background: var(--branding-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(139, 195, 74, 0.4);
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.vc-play svg {
+  width: 24px;
+  height: 24px;
+  margin-left: 4px;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .vc-play {
+    width: 56px;
+    height: 56px;
+  }
+  .vc-play svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.vc-play:hover,
+.vc-play:focus,
+.vc-play:active,
+button.vc-play,
+button.vc-play:hover {
+  background: var(--branding-color) !important;
+  outline: none;
+  border: none;
+}
+
+/* ===== INFO AREA ===== */
+.vc-info {
+  padding: 16px;
+  background: #ffffff;
+  border-top: 1px solid #d7d7d7;
+}
+
+.vc-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.vc-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d7d7d7;
+}
+
+.vc-avatar img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.vc-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.vc-caption {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.vc-stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.vc-stat {
+  font-size: 13px;
+  color: #666666;
+}
+
+.vc-savings {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--branding-color);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.vc-no-videos {
+  text-align: center;
+  color: #94a3b8;
+  padding: 40px;
+}
+
+/* ==== MODAL ==== */
+.vc-modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(15px);
+}
+
+.vc-modal-content {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+}
+
+.vc-modal-video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+  max-height: 80vh;
+}
+
+.vc-modal-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.vc-modal-close {
+  position: absolute;
+  z-index: 999;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 40px;
+  cursor: pointer;
+  background: gray;
+  width: 44px;
+  height: 44px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  border: none;
+}
+
+.vc-ratio-16-9 { padding-bottom: 56.25%; }
+.vc-ratio-9-16 { padding-bottom: 177.77%; }
+.vc-ratio-1-1  { padding-bottom: 100%; }
+
+.vc-modal.is-portrait .vc-modal-content { max-width: 380px; }
+.vc-modal.is-square .vc-modal-content   { max-width: 520px; }
+
+@media (max-width: 768px) {
+  .vc-modal {
+    padding: 60px 20px;
+  }
+  .vc-modal.is-portrait .vc-modal-content {
+    max-width: 80vw;
+  }
+}
